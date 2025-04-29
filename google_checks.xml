@@ -3,38 +3,94 @@
           "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
           "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
+<!-- Основний модуль для перевірки коду -->
 <module name="Checker">
+  <!-- Модуль для перевірки коду на відповідність стилю -->
   <module name="TreeWalker">
+    
+    <!-- Перевірка стилю використання анотацій -->
     <module name="AnnotationUseStyle"/>
+    
+    <!-- Запобігає використанню зірочки (*) в імпортах -->
     <module name="AvoidStarImport"/>
+    
+    <!-- Перевірка імен констант, які повинні бути в верхньому регістрі -->
     <module name="ConstantName"/>
+    
+    <!-- Перевірка на порожні блоки коду, що можуть бути зайвими -->
     <module name="EmptyBlock"/>
+    
+    <!-- Перевірка, чи методи не порівнюють з null без використання Objects.equals() -->
     <module name="EqualsAvoidNull"/>
+    
+    <!-- Перевірка, чи клас є final, якщо він не повинен бути змінюваним -->
     <module name="FinalClass"/>
+    
+    <!-- Перевірка на приховані конструктори в утилітних класах -->
     <module name="HideUtilityClassConstructor"/>
+    
+    <!-- Перевірка на некоректні блоки catch, що можуть приховувати помилки -->
     <module name="IllegalCatch"/>
+    
+    <!-- Забороняє імпорти з певних пакетів (наприклад, java.util) -->
     <module name="IllegalImport">
       <property name="illegalPkgs" value="java.util"/>
     </module>
+    
+    <!-- Перевірка на некоректне використання throws в методах -->
     <module name="IllegalThrows"/>
+    
+    <!-- Перевірка на правильний порядок оголошення внутрішніх класів та типів -->
     <module name="InnerTypeLast"/>
+    
+    <!-- Перевірка на правильне використання інтерфейсів -->
     <module name="InterfaceIsType"/>
+    
+    <!-- Перевірка на правильне розташування фігурних дужок -->
     <module name="LeftCurly"/>
+    
+    <!-- Перевірка довжини рядка, максимальна довжина 100 символів -->
     <module name="LineLength">
       <property name="max" value="100"/>
     </module>
+    
+    <!-- Перевірка на правильність іменування методів (методи повинні бути у camelCase) -->
     <module name="MethodName"/>
+    
+    <!-- Перевірка на правильний порядок модифікаторів (public, static, final тощо) -->
     <module name="ModifierOrder"/>
+    
+    <!-- Перевірка на необхідність фігурних дужок у блоках коду -->
     <module name="NeedBraces"/>
+    
+    <!-- Перевірка на наявність переведення рядків, коли це не дозволено -->
     <module name="NoLineWrap"/>
+    
+    <!-- Забороняє мати більше одного класу на верхньому рівні в одному файлі -->
     <module name="OneTopLevelClass"/>
+    
+    <!-- Перевірка на відповідність імені файлу та назви класу -->
     <module name="OuterTypeFilename"/>
+    
+    <!-- Перевірка на наявність декларації пакету в кожному файлі -->
     <module name="PackageDeclaration"/>
+    
+    <!-- Перевірка на відповідність імен параметрів методів (не повинні бути однолітерними) -->
     <module name="ParameterName"/>
+    
+    <!-- Перевірка на зайві модифікатори, які не впливають на код -->
     <module name="RedundantModifier"/>
+    
+    <!-- Перевірка на правильне розташування правої фігурної дужки -->
     <module name="RightCurly"/>
+    
+    <!-- Перевірка на правильне іменування статичних змінних (мають бути у верхньому регістрі) -->
     <module name="StaticVariableName"/>
+    
+    <!-- Перевірка на правильність імен класів (мають бути у PascalCase) -->
     <module name="TypeName"/>
+    
+    <!-- Перевірка на використання правильних модифікаторів доступу (public, private, protected) -->
     <module name="VisibilityModifier"/>
   </module>
 </module>
