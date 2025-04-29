@@ -1,24 +1,37 @@
+# Java CI GitHub Actions Workflow
+#
+# Цей файл описує налаштування для GitHub Actions для автоматичного запуску тестів, лінтингу та збірки Java-проекту.
+# Використовує JDK 17 і Maven для збірки проекту, запуску тестів та перевірки стилю коду за допомогою Checkstyle.
+
 name: Java CI
 
+# Запуск цього workflow на події push і pull request.
 on: [push, pull_request]
 
 jobs:
   build:
+    # Виконання на останній версії Ubuntu.
     runs-on: ubuntu-latest
+
     steps:
+      # Крок для клону репозиторію в CI середовищі.
       - uses: actions/checkout@v3
 
+      # Налаштовує JDK 17 для виконання Java-збірки.
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
 
+      # Команда для компіляції проекту з використанням Maven.
       - name: Build
         run: mvn compile
 
+      # Запуск усіх тестів у проекті за допомогою Maven.
       - name: Test
         run: mvn test
 
+      # Перевірка коду на відповідність стилю за допомогою Checkstyle.
       - name: Lint
         run: mvn checkstyle:check
